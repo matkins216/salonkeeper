@@ -8,8 +8,13 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
-const indexRoutes = require('./routes/index');
 
+
+const indexRoutes = require('./routes/oauth');
+const apptRoutes = require('./routes/appointments');
+const clientsRoutes = require('./routes/clients');
+const servRoutes = require('./routes/services');
+const dashRoutes = require('./routes/dash')
 
 // create the Express app
 const app = express();
@@ -51,11 +56,17 @@ app.use(function (req, res, next) {
 
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
+app.use('/clients', clientsRoutes);
+app.use('/appointments', apptRoutes);
+app.use('/services', servRoutes);
+app.use('/dash', dashRoutes);
 
 
 // invalid request, send 404 page
 app.use(function(req, res) {
   res.status(404).send('Cant find that!');
 });
+
+
 
 module.exports = app;
