@@ -7,6 +7,7 @@ const clientSchema = new Schema ({
     name: String,
     lcv: Number,
     services_received: [{type: Schema.Types.ObjectId, ref: 'Services'}],
+    user: {type: Schema.Types.ObjectId, ref: 'User'},
     phone: String,
     yearVal: Number
 
