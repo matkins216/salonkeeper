@@ -9,16 +9,16 @@
 </head>
 <body>
     <% if (user) { %>
-        <a href="./clients/showMy">MY CLIENTS</a>
-    <a href="./clients/new">ADD CLIENT</a>
+        <a href="../dash">DASHBOARD</a>
+        <a href="./showMy">MY CLIENTS</a>
+    <a href="./new">ADD CLIENT</a>
         <a href="/logout">LOG OUT</a>
       <% } else { %>
         <a href="/auth/google" class="login">LOGIN</a>
       <% } %>
-   
-    <h1>HELLO <%= user.name %></h1>
-   
-    <table class="clientTable">
+
+    <h1>My CLIENTS</h1>
+    <table>
         <thead>
             <tr>
                 <th>Name</th>
@@ -33,10 +33,13 @@
                 <td><%= c.email %> </td>
                 <td><%= c.phone %></td>
                 <td><a href="/clients/<%= c.id %>">Details</a></td>
+                <td><a href="/clients/<%= c.id %>/edit">Edit</a></td>
+                <td><form action="/clients/<%= c.id %>?_method=DELETE" method="POST">
+                    <button type="submit">X</button>
+                  </form></td>
                 </tr>
         <% }); %> 
-
-   
-   
+    </tbody>
+    </table>
 </body>
 </html>

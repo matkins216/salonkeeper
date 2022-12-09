@@ -1,12 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= client.name %> </title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>
+        <%= client.name %>
+    </title>
 </head>
+
 <body>
-    <h1>client show page</h1>
+    <% if (user) { %>
+        <a href="../dash">DASHBOARD</a>
+        <a href="./showMy">MY CLIENTS</a>
+        <a href="./new">ADD CLIENT</a>
+        <a href="/logout">LOG OUT</a>
+        <% } else { %>
+            <a href="/auth/google" class="login">LOGIN</a>
+            <% } %>
+
+                <h1>
+                    <%= client.name %>
+                </h1>
+
+                <br>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Date</th>
+                            <th>Price</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% let expRev=0 %>
+                            <% client.appointments.forEach(a=> { %>
+                                <% expRev +=a.price %>
+                                    <td>
+                                        <%= a.services %>
+                                    </td>
+                                    <td>
+                                        <%= a.date %>
+                                    </td>
+                                    <td>
+                                        <%= a.price %>
+                                    </td>
+                                    <td>
+                                        <%= a.time %>
+                                    </td>
+                                    <td><form action="/appointments/<%= a._id %>?_method=DELETE" method="POST">
+                                        <button type="submit">X</button>
+                                      </form></td>
+                    </tbody>
+                    <% }); %>
+
+                        <h2>
+                            <%= client.name %> is worth $<%= expRev %> right now
+                        </h2>
+                </table>
+                <br>
+                <form method="POST" action="/clients/<%= client.id %>/appointments">
+                    <label>Service:
+                        <select name="services">
+                            <option value="Cut">Cut</option>
+                            <option value="Cut and Color">Cut and Color</option>
+                            <option value="Color">Color</option>
+                            <option value="Spa">Spa</option>
+                        </select>
+                    </label>
+                    <label>Date: </label>
+                    <input type="datetime-local" name="date">
+                    <label>Price: </label>
+                    <input type="text" name="price">
+                    <label>Time: </label>
+                    <input type="number" name="time">
+                    <input type="submit" value="Add Appointment">
 </body>
+
 </html>

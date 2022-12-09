@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <title>Salon Keep</title>
 </head>
 <body>
+    <% if (user) { %>
+        <a href="../dash">DASHBOARD</a>
+        <a href="./clients/showMy">MY CLIENTS</a>
+    <a href="./clients/new">ADD CLIENT</a>
+        <a href="/logout">LOG OUT</a>
+      <% } else { %>
+        <a href="/auth/google" class="login">LOGIN</a>
+      <% } %>
+
     <h1>SALON KEEPER HOMEPAGE</h1>
     <a href="/auth/google">LOGIN</a>
 </body>

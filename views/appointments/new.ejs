@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <title>Your Clients</title>
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+    <title>Document</title>
 </head>
 <body>
     <% if (user) { %>
-        <a href="../dash">DASHBOARD</a>
         <a href="./clients/showMy">MY CLIENTS</a>
     <a href="./clients/new">ADD CLIENT</a>
         <a href="/logout">LOG OUT</a>
@@ -17,10 +16,7 @@
         <a href="/auth/google" class="login">LOGIN</a>
       <% } %>
 
-    <h1>your clients</h1>
-    <% user.clients.forEach(c => {) %>
-    <li>
-        <%= c.name %>  <%= c.email %> <%= c.phone %>    
-    </li>
+    <h1>appointments</h1>
+    
 </body>
 </html>

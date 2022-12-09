@@ -18,7 +18,7 @@
       <% } %>
 
     <h1>new client</h1>
-    <form id="new-form" action="/clients" method="POST">
+    <form id="new-form" action="/clients/<%= client._id %>?_method=PUT" method="POST">
         <label>Name: </label>
         <input type="text" name="name">
         <label>Email Address: </label>
@@ -33,7 +33,7 @@
                 <option value="Spa">Spa</option>
             </select>
         </label> -->
-        <input type="submit" value="Add Client">
+        <input type="submit" value="Make Changes">
       </form>
 </body>
 </html>

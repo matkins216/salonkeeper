@@ -13,7 +13,7 @@ const methodOverride = require('method-override');
 const indexRoutes = require('./routes/oauth');
 const apptRoutes = require('./routes/appointments');
 const clientsRoutes = require('./routes/clients');
-const servRoutes = require('./routes/services');
+
 const dashRoutes = require('./routes/dash')
 
 // create the Express app
@@ -57,8 +57,7 @@ app.use(function (req, res, next) {
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
 app.use('/clients', clientsRoutes);
-app.use('/appointments', apptRoutes);
-app.use('/services', servRoutes);
+app.use('/', apptRoutes);
 app.use('/dash', dashRoutes);
 
 

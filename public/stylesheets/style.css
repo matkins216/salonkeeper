@@ -18,3 +18,13 @@
 .collection-item form {
   margin-top: -5px;
 }
+
+body {
+  background-color: palegreen;
+  display: grid;
+  grid-template-columns: 4;
+  grid-template-rows: 4;
+}
+h1 {
+  
+}
