@@ -115,3 +115,41 @@ h2 {
 #new-form {
   align-self: start;
 }
+
+input[type=submit] {
+  width: 100%;
+  text-align: center;
+  border-radius: 10px;
+  color: whitesmoke;
+  background: transparent;
+  border: 2px solid whitesmoke;
+}
+
+input[type=submit]:hover {
+  background: rgb(78, 226, 157);
+  color: black;
+}
+
+td>a {
+  text-decoration: none;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 2px;
+  background-color: rgb(212, 212, 212);
+}
+
+td>a:hover {
+  background-color: white;
+}
+
+button {
+  text-decoration: none;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: rgb(212, 212, 212);
+}
+
+button:hover {
+  background-color: white;
+}
