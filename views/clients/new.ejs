@@ -5,35 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <title>new client</title>
+    <title>New Client</title>
 </head>
 <body>
     <% if (user) { %>
+        <nav>
         <a href="../dash">DASHBOARD</a>
         <a href="./showMy">MY CLIENTS</a>
     <a href="./new">ADD CLIENT</a>
         <a href="/logout">LOG OUT</a>
+        </nav>
       <% } else { %>
+        <nav>
         <a href="/auth/google" class="login">LOGIN</a>
+        </nav>
       <% } %>
 
-    <h1>new client</h1>
+    <h1 class="title">Create New Client</h1>
     <form id="new-form" action="/clients" method="POST">
         <label>Name: </label>
         <input type="text" name="name">
+        <br>
         <label>Email Address: </label>
         <input type="text" name="email">
+        <br>
         <label>Phone <small>(no dashes or spaces)</small>: </label>
         <input type="text" name="phone">
-        <!-- <label>Service:
-            <select name="services">
-                <option value="Cut">Cut</option>
-                <option value="Cut and Color">Cut and Color</option>
-                <option value="Color">Color</option>
-                <option value="Spa">Spa</option>
-            </select>
-        </label> -->
-        <input type="submit" value="Add Client">
+        <br>
+        <input class="button" type="submit" value="Add Client">
       </form>
 </body>
 </html>

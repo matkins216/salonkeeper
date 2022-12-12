@@ -9,30 +9,30 @@
 </head>
 <body>
     <% if (user) { %>
+        <nav>
         <a href="../dash">DASHBOARD</a>
         <a href="./showMy">MY CLIENTS</a>
     <a href="./new">ADD CLIENT</a>
         <a href="/logout">LOG OUT</a>
+        </nav>
       <% } else { %>
+        <nav>
         <a href="/auth/google" class="login">LOGIN</a>
+        </nav>
       <% } %>
 
-    <h1>new client</h1>
+    <h1 class="title">Edit Client</h1>
     <form id="new-form" action="/clients/<%= client._id %>?_method=PUT" method="POST">
         <label>Name: </label>
         <input type="text" name="name">
+        <br>
         <label>Email Address: </label>
         <input type="text" name="email">
+        <br>
         <label>Phone <small>(no dashes or spaces)</small>: </label>
         <input type="text" name="phone">
-        <!-- <label>Service:
-            <select name="services">
-                <option value="Cut">Cut</option>
-                <option value="Cut and Color">Cut and Color</option>
-                <option value="Color">Color</option>
-                <option value="Spa">Spa</option>
-            </select>
-        </label> -->
+        <br>
+       
         <input type="submit" value="Make Changes">
       </form>
 </body>

@@ -9,15 +9,21 @@
 </head>
 <body>
     <% if (user) { %>
+        <nav>
         <a href="../dash">DASHBOARD</a>
         <a href="./showMy">MY CLIENTS</a>
     <a href="./new">ADD CLIENT</a>
         <a href="/logout">LOG OUT</a>
+        </nav>
       <% } else { %>
+        <nav>
         <a href="/auth/google" class="login">LOGIN</a>
+        </nav>
       <% } %>
 
-    <h1>My CLIENTS</h1>
+    <h1 class="title">My Clients</h1>
+
+
     <table>
         <thead>
             <tr>

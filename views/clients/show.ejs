@@ -13,15 +13,19 @@
 
 <body>
     <% if (user) { %>
+        <nav>
         <a href="../dash">DASHBOARD</a>
         <a href="./showMy">MY CLIENTS</a>
         <a href="./new">ADD CLIENT</a>
         <a href="/logout">LOG OUT</a>
+        </nav>
         <% } else { %>
+            <nav>
             <a href="/auth/google" class="login">LOGIN</a>
+            </nav>
             <% } %>
 
-                <h1>
+                <h1 class="title">
                     <%= client.name %>
                 </h1>
 
@@ -70,13 +74,18 @@
                             <option value="Color">Color</option>
                             <option value="Spa">Spa</option>
                         </select>
+                        
                     </label>
+                    <br>
                     <label>Date: </label>
                     <input type="datetime-local" name="date">
+                    <br>
                     <label>Price: </label>
                     <input type="text" name="price">
+                    <br>
                     <label>Time: </label>
                     <input type="number" name="time">
+                    <br>
                     <input type="submit" value="Add Appointment">
 </body>
 

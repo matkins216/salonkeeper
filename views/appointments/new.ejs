@@ -9,11 +9,15 @@
 </head>
 <body>
     <% if (user) { %>
+      <nav>
         <a href="./clients/showMy">MY CLIENTS</a>
     <a href="./clients/new">ADD CLIENT</a>
         <a href="/logout">LOG OUT</a>
+        </nav>
       <% } else { %>
+        <nav>
         <a href="/auth/google" class="login">LOGIN</a>
+        </nav>
       <% } %>
 
     <h1>appointments</h1>
