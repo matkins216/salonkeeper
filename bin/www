@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-
+// top of the file import the connectDB function
+const { connectDB } = require("../config/database");
 /**
  * Module dependencies.
  */
