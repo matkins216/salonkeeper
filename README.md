@@ -3,8 +3,8 @@ This app is a simple CRM system for salons, barbershops, and independent contrac
 
 # Screenshots
 ![1](./public/images/Screenshot%20from%202022-12-13%2012-17-31.png)
-![2](/public/images/Screenshot from 2022-12-13 12-17-41.png)
-![3](/public/images/Screenshot from 2022-12-13 12-17-52.png)
+![2](./public/images/Screenshot from 2022-12-13 12-17-41.png)
+![3](./public/images/Screenshot from 2022-12-13 12-17-52.png)
 
 # Technologies Used
 - Express/MongooseJS
