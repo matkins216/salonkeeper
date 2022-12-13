@@ -1,22 +1,5 @@
-.brand-logo {
-  margin-left: 15px;
-}
-
-.card .card-content .card-title {
-  margin-bottom: 10px;
-}
-
-#search-row form {
-  padding-top: 20px;
-}
-
-.student-name {
-  position: relative;
-  top: -5px;
-}
-
-.collection-item form {
-  margin-top: -5px;
+* {
+  box-sizing: border-box;
 }
 
 nav {
@@ -26,6 +9,7 @@ nav {
   grid-column-start: 2;
   max-width: fit-content;
   background-color: transparent;
+  align-self: center;
 }
 
 nav>a{
@@ -34,13 +18,14 @@ nav>a{
   font-size: larger;
   color: white;
   position: relative;
+  
 }
 
 nav>a::after{
   content: '';
   height: 3px;
   width: 0;
-  background: grey;
+  background: rgb(182, 229, 184);
   position: absolute;
   left: 0;
   bottom: -10px;
@@ -56,11 +41,12 @@ body {
   padding: 0;
   height: 100vh;
   background-image: url(../images/pexels-adrien-olichon-2387793.jpg);
+  /* background-color: rgb(107, 107, 107); */
   background-size: cover;
   background-position: center;
   display: grid;
   grid-template-columns: 20% 1fr 20%;
-  grid-template-rows: 40px 140px 1fr 40px;
+  grid-template-rows: 10% 15% 1fr 10%;
 }
 
 .title {
@@ -72,8 +58,7 @@ body {
 
 table {
   grid-column-start: 2;
-  border-style: inset;
-  border-collapse: collapse;
+
   table-layout: fixed;
   max-width: fit-content;
   font-size: large;
@@ -81,6 +66,7 @@ table {
   align-self: start;
   background-color: whitesmoke;
   grid-row-start: 3;
+  border-radius: 5px;
 }
 
 td {
@@ -92,6 +78,7 @@ tbody:nth-child(even) {
   background-color: rgb(182, 229, 184);
 }
 
+
 form {
   display: block;
   grid-row-start: 3;
@@ -100,8 +87,6 @@ form {
   align-self: center;
   color: whitesmoke;
 }
-
-
 
 h2 {
   text-align: center;
@@ -152,4 +137,56 @@ button {
 
 button:hover {
   background-color: white;
+}
+
+@media screen and (max-width: 750px) {
+  body{
+    font-size: medium;
+    height: 100vh;
+    grid-template-columns: 1vw;
+    grid-template-rows: fit-content;
+    margin: 0;
+    padding: 0;
+  }
+
+  table {
+    
+    max-width: fit-content;
+    align-self: start;
+    justify-self: center;
+    
+  }
+
+  nav {
+    display: flex;
+  }
+
+  nav>a{
+    font-size: small;
+    margin: 10px;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    justify-self: center;
+    text-align: center;
+  }
+  .title {
+    margin: 5px auto;
+    text-align: center;
+   
+  }
+
+  h2 {
+    font-size: large;
+  }
+
+  td {
+    text-align: center;
+    padding: 4px;
+    font-size: small;
+  }
+
+  /* form {
+    align-self: start;
+  } */
 }
