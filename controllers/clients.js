@@ -15,16 +15,7 @@ module.exports = {
 }
 
 function homepage(req, res) {
-  // Tell the model,
-  // to go get ALL of the movies from
-  // the database Movie is our model
-  // Client.find({}, function (err, clientDocs) {
-  // moviesDocs is all of the movies
-  // from our collection in mongodb!
-  // console.log(clientDocs);
 
-  // respond to the client inside the callback of the model
-  // res.render('clients/index', { clients: clientDocs });
   res.render('login');
   // });
 }
@@ -40,18 +31,11 @@ function newClient(req, res) {
 }
 
 function create(req, res) {
-  // console.log(req.body, ' contents of the form');
-  // update
+
 
   console.log(req.body, " after");
 
-  // // remove the white space in the string
-  // req.body.cast = req.body.cast.replace(/\s*, \s*/g, ',')
-  // req.body.cast = req.body.cast.split(',')
 
-  // THe server now tells the Model
-  // to take the contents of the form (req.body) sent from the client
-  // and put it in the database
   req.body.user = req.user
 
   Client.create(req.body, function (err, clientDoc) {
@@ -69,11 +53,10 @@ function create(req, res) {
     console.log("==========================================");
 
 
-    // respond to the client
+
     res.redirect('/clients/showMy');
   })
-}; // end of the callback function in Movie.create
-// end of the create controller function
+};
 
 async function index(req, res) {
   const clientDocs = await Client.find({});
@@ -94,21 +77,19 @@ async function show(req, res) {
 
 function edit(req, res) {
   console.log(req.user._id, '======================== here is req.user._id')
-  Client.findOne({_id: req.params.id, user: req.user._id}, function(err, clientDoc) {
+  Client.findOne({ _id: req.params.id, user: req.user._id }, function (err, clientDoc) {
     if (err || !clientDoc) return res.redirect('/dash');
-    res.render('clients/edit', {client: clientDoc});
+    res.render('clients/edit', { client: clientDoc });
   });
 }
 
 function update(req, res) {
   console.log(req.params.id, '----------------- params')
   Client.findOneAndUpdate(
-    {_id: req.params.id},
-    // update object with updated properties
+    { _id: req.params.id },
     req.body,
-    // options object with new: true to make sure updated doc is returned
-    {new: true},
-    function(err, clientDoc) {
+    { new: true },
+    function (err, clientDoc) {
       if (err || !clientDoc) return res.redirect('/clients');
       res.redirect('/clients/showMy');
     }
@@ -117,9 +98,8 @@ function update(req, res) {
 
 function deleteClient(req, res) {
   Client.findOneAndDelete(
-    // Ensue that the book was created by the logged in user
-    {_id: req.params.id }, function(err) {
-      // Deleted book, so must redirect to index
+    { _id: req.params.id }, function (err) {
+
       res.redirect('/clients/showMy');
     }
   );
